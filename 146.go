@@ -1,3 +1,5 @@
+package main
+
 type LRUCache struct {
 	dataMap map[int]*ListDataNode
 	head *ListDataNode
