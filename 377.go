@@ -20,8 +20,8 @@ target = 4
 (3, 1)
 
  */
- //分析为完全背包
- //思维错误因为要的是组合的结果所以【1,2】和【2，1】是一样的
+ //分析为完全背包 错误的！！！！
+ //思维错误因为要的是排列的结果所以【1,2】和【2，1】是一样的
 /*
 func combinationSum4(nums []int, target int) int {
 	//dp[j] = max(dp[j],dp[j-i]+1)
@@ -45,6 +45,7 @@ func completePackage(dp[]int,cost,weight int ){
 }*/
 
 /***
+	！！！排列是动规，组合是背包！！！
 	上面的任务是完全背包想法错误因为没有考虑位置不同的结果陷入思维误区
 	dp[i] = dp[i-cost1] + dp[i-cost2] + dp[i-cost3] ....
 	从下往上dp推到，同时dp[0]代表空 空就什么都不拿随意dp【0】=1
