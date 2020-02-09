@@ -8,7 +8,7 @@ func CheckStr(strs []string) [][2]int{
 	for key ,str := range strs{
 		cout:=0
 		for _,char := range str{
-			if string(char) == "0"{
+			if char == '0'{
 				cout++
 			}
 		}
@@ -34,6 +34,7 @@ func findMaxForm(strs []string, m int, n int) int {
 				one++
 			}
 		}
+		//注意>=0 因为【0，1】 【1，0】是有效状态要计算
 		for j:=m;j>=0;j--{
 			for k:=n;k>=0;k--{
 				if j- zero >=0 && k-one>=0{
