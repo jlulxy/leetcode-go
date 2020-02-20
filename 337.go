@@ -95,26 +95,21 @@ func robRe(root *TreeNode) (int,bool){
 ***/
 
 func rob (root * TreeNode) int {
-	meme := make(map[*TreeNode][]int)
-	re := RobDeep(root,meme)
+	re := RobDeep(root)
 	return max337(re[0],re[1])
 
 }
 
 
-func RobDeep (root *TreeNode,meme map[*TreeNode][]int)[]int{
+func RobDeep (root *TreeNode)[]int{
 	re := make([]int,2)
 	if root == nil{
 		return re
 	}
-	if val,ok := meme[root];ok{
-		return val
-	}
-	left := RobDeep(root.Left,meme)
-	right := RobDeep(root.Right,meme)
+	left := RobDeep(root.Left)
+	right := RobDeep(root.Right)
 	//这里要注意当前取0的时候，最优两节点也可以取0！！！
 	re[0] = max337(left[0],left[1]) + max337(right[1],right[0])
 	re[1] = root.Val + left[0] +right[0]
-	meme[root] = re
 	return re
 }
