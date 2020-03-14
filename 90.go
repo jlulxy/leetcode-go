@@ -16,7 +16,7 @@ func subsetsWithDup(nums []int) [][]int {
 			if pre != num {
 				count =1
 				reData = append(reData,temp)
-			// 重复的元素只有上一个选了才选上一个没选就不选否则会重复
+			// 在添加是重复的元素只有在前几个重复的数字第一个正常，后面的只有在重复的元素都选了的情况下才能选择
 			}else if pre == num && len(v)>=count && v[len(v)-count] == num{
 				reData = append(reData,temp)
 			}
