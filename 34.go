@@ -2,9 +2,8 @@ package main
 
 import "fmt"
 
-
-
 func searchRangeV2(nums []int, target int) []int {
+
 	l, r := 0, len(nums)-1
 	if r < 0 {
 		return []int{-1, -1}
@@ -37,62 +36,62 @@ func searchRangeV2(nums []int, target int) []int {
 }
 
 func searchRange(nums []int, target int) []int {
-	left :=binaryLeftSerach(nums,target)
-	right :=binaryRightSerach(nums,target)
-	return []int{left,right}
+	left := binaryLeftSerach(nums, target)
+	right := binaryRightSerach(nums, target)
+	return []int{left, right}
 }
 
-func binaryLeftSerach(nums[]int ,target int ) int {
+func binaryLeftSerach(nums []int, target int) int {
 	lenN := len(nums)
-	if lenN ==0 {
+	if lenN == 0 {
 		return -1
 	}
-	right,left,mid := lenN,0,0
+	right, left, mid := lenN, 0, 0
 	for left < right {
-		mid = (left +right) /2
-		if nums[mid] == target{
+		mid = (left + right) / 2
+		if nums[mid] == target {
 			right = mid
-		}else if nums[mid] >target{
+		} else if nums[mid] > target {
 			right = mid
-		}else if nums[mid] < target{
+		} else if nums[mid] < target {
 			left = mid + 1
 		}
 	}
-	if left == lenN{
+	if left == lenN {
 		return -1
 	}
-	if nums[left] ==target {
+	if nums[left] == target {
 		return left
 	}
-	return  -1
+	return -1
 }
 
-func binaryRightSerach(nums[]int ,target int ) int {
+func binaryRightSerach(nums []int, target int) int {
 	lenN := len(nums)
-	if lenN ==0 {
+	if lenN == 0 {
 		return -1
 	}
-	right,left,mid := lenN,0,0
+	right, left, mid := lenN, 0, 0
 	for left < right {
-		mid = (left +right) /2
-		if nums[mid] == target{
+		mid = (left + right) / 2
+		if nums[mid] == target {
 			left = mid + 1
-		}else if nums[mid] > target{
+		} else if nums[mid] > target {
 			right = mid
-		}else if nums[mid] < target{
+		} else if nums[mid] < target {
 			left = mid + 1
 		}
 	}
-	if right - 1 < 0 {
+	if right-1 < 0 {
 		return -1
 	}
-	if nums[right-1] == target{
-		return right-1
+	if nums[right-1] == target {
+		return right - 1
 	}
-	return  -1
+	return -1
 }
 
-func main(){
-	data := []int{5,7,7,8,8,10}
-	fmt.Println(searchRange(data,8))
+func main() {
+	data := []int{5, 7, 7, 8, 8, 10}
+	fmt.Println(searchRange(data, 8))
 }
